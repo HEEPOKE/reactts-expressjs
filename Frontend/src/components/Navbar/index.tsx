@@ -7,6 +7,7 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import LoginModal from "../Modals/LoginModal";
 
 function NavbarMenu() {
   return (
@@ -45,8 +46,10 @@ function NavbarMenu() {
             <Button variant="outline-success">Search</Button>
           </Form>
           <Nav>
-            <Button className="Loginbutton mx-2">Login</Button>
-            <Button className="Registerbutton">Register</Button>
+            <LoginModal />
+            <LinkContainer to="/register">
+              <Button className="Registerbutton">Register</Button>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>

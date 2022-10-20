@@ -1,0 +1,17 @@
+.FacebookIcon {
+  background: #3b5998 !important;
+  border: #3b5998 !important;
+}
+
+.FacebookIcon:hover {
+  opacity: 0.7;
+}
+
+.GoogleIcon {
+  background-color: #dd4b39 !important;
+  border: #dd4b39 !important;
+}
+
+.GoogleIcon:hover {
+  opacity: 0.7;
+}
