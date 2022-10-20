@@ -1,0 +1,23 @@
+@media only screen and (max-width: 992px) {
+  .Loginbutton {
+    margin-top: 0.5rem !important;
+    width: 500px;
+    align-self: center !important;
+  }
+
+  .Registerbutton {
+    margin-top: 0.5rem !important;
+    width: 500px;
+    align-self: center !important;
+  }
+}
+
+@media only screen and (max-width: 528px) {
+  .Loginbutton {
+    width: 300px;
+  }
+
+  .Registerbutton {
+    width: 300px;
+  }
+}
