@@ -10,6 +10,10 @@ import { LinkContainer } from "react-router-bootstrap";
 import LoginModal from "../Modals/LoginModal";
 
 function NavbarMenu() {
+  const RegisterNew = () => {
+    window.location.href = "/register";
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container fluid>
@@ -47,9 +51,11 @@ function NavbarMenu() {
           </Form>
           <Nav>
             <LoginModal />
-            <LinkContainer to="/register">
-              <Button className="Registerbutton">Register</Button>
-            </LinkContainer>
+            {/* <LinkContainer to="/register"> */}
+            <Button className="Registerbutton" onClick={RegisterNew}>
+              Register
+            </Button>
+            {/* </LinkContainer> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

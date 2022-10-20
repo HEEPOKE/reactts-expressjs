@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Button, Form, Modal, Container, Row } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  Modal,
+  Container,
+  Row,
+  Col,
+  FloatingLabel,
+} from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faGoogle } from "@fortawesome/free-brands-svg-icons";
@@ -27,24 +37,47 @@ export default function LoginModal() {
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Group className="mb-3" controlId="Email">
                 <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="@example.com"
-                  autoFocus
-                />
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Email"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="email"
+                    placeholder="@example.com"
+                    autoFocus
+                  />
+                </FloatingLabel>
               </Form.Group>
               <Form.Group className="mb-3" controlId="Password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="password"
-                  autoFocus
-                />
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Password"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="password"
+                    placeholder="password"
+                    autoFocus
+                  />
+                </FloatingLabel>
               </Form.Group>
+              <Row className="">
+                <Col className="text-start">
+                  <Form.Check type="checkbox" label="remember" />
+                </Col>
+                <Col></Col>
+                <Col className="fw-light text-end">
+                  <a className="text-secondary" href="/forgotpassword">
+                    Forgot Password
+                  </a>
+                </Col>
+              </Row>
             </Form.Group>
             <Container>
               <Row className="justify-content-center">
-                <Button className="col-3">Login</Button>
+                <Button className="col-4">Login</Button>
               </Row>
             </Container>
           </Form>
@@ -53,7 +86,7 @@ export default function LoginModal() {
           </div>
           <Container>
             <Row className="justify-content-center mt-2">
-              <Button className="FacebookIcon col-auto">
+              <Button className="FacebookIcon col-6">
                 <FontAwesomeIcon
                   className="mx-2"
                   icon={["fab", "facebook-square"]}
@@ -62,7 +95,7 @@ export default function LoginModal() {
               </Button>
             </Row>
             <Row className="justify-content-center mt-2">
-              <Button className="GoogleIcon col-auto">
+              <Button className="GoogleIcon col-6">
                 <FontAwesomeIcon className="mx-2" icon={["fab", "google"]} />
                 Login with Google+
               </Button>
