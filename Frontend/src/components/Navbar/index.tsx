@@ -9,7 +9,7 @@ import {
 import { LinkContainer } from "react-router-bootstrap";
 import LoginModal from "../Modals/LoginModal";
 
-function NavbarMenu() {
+export default function NavbarMenu() {
   const RegisterNew = () => {
     window.location.href = "/register";
   };
@@ -62,5 +62,3 @@ function NavbarMenu() {
     </Navbar>
   );
 }
-
-export default NavbarMenu;

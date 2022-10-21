@@ -1,8 +1,10 @@
+import NavbarMenu from "../../components/Navbar";
 import Card from "react-bootstrap/Card";
 
 export default function StorePage() {
   return (
-    <>
+    <div>
+      <NavbarMenu />
       <Card>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
@@ -19,6 +21,6 @@ export default function StorePage() {
         </Card.Body>
         <Card.Img variant="bottom" src="holder.js/100px180" />
       </Card>
-    </>
+    </div>
   );
 }

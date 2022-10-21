@@ -1,8 +1,10 @@
+import NavbarMenu from "../../components/Navbar";
 import Card from "react-bootstrap/Card";
 
 export default function HomePage() {
   return (
     <>
+      <NavbarMenu />
       <Card>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
