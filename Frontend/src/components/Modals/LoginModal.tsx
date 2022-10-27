@@ -116,7 +116,7 @@ export default function LoginModal() {
               <FacebookLoginButton />
             </Row>
             <Row className="justify-content-center mt-2">
-              <GoogleLoginButton />
+              {/* <GoogleLoginButton /> */}
             </Row>
             {/* <Row className="justify-content-center mt-2">
               <Button className="FacebookIcon col-6">
