@@ -9,7 +9,7 @@ export default class FacebookLoginButton extends React.Component {
   render() {
     return (
       <FacebookLogin
-        appId="1088597931155576"
+        appId="1164073600984912"
         autoLoad={true}
         fields="name,email,picture"
         scope="public_profile,user_friends,user_actions.books"

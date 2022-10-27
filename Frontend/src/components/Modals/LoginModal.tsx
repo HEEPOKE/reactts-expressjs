@@ -112,6 +112,9 @@ export default function LoginModal() {
           </div>
           <Container>
             <Row className="justify-content-center mt-2">
+              <FacebookLoginButton />
+            </Row>
+            {/* <Row className="justify-content-center mt-2">
               <Button className="FacebookIcon col-6">
                 <FontAwesomeIcon
                   className="mx-2"
@@ -119,15 +122,12 @@ export default function LoginModal() {
                 />
                 Login with Facebook
               </Button>
-            </Row>
+            </Row> */}
             <Row className="justify-content-center mt-2">
               <Button className="GoogleIcon col-6">
                 <FontAwesomeIcon className="mx-2" icon={["fab", "google"]} />
                 Login with Google+
               </Button>
-            </Row>
-            <Row className="justify-content-center mt-2">
-              <FacebookLoginButton />
             </Row>
           </Container>
         </Modal.Body>
