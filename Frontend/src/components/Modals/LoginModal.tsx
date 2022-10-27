@@ -19,6 +19,18 @@ export default function LoginModal() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [validated, setValidated] = useState(false);
+
+  const LoginSubmit = (event: any) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
+
   return (
     <>
       <Button className="Loginbutton mx-2" onClick={handleShow}>
@@ -31,7 +43,7 @@ export default function LoginModal() {
           <div className="text-center">
             <h3>Login</h3>
           </div>
-          <Form>
+          <Form noValidate validated={validated} onSubmit={LoginSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Group className="mb-3" controlId="Email">
                 <Form.Label>Email</Form.Label>
@@ -44,7 +56,11 @@ export default function LoginModal() {
                     type="email"
                     placeholder="@example.com"
                     autoFocus
+                    required
                   />
+                  <Form.Control.Feedback type="invalid">
+                    Please Enter Email.
+                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Form.Group>
               <Form.Group className="mb-3" controlId="Password">
@@ -58,7 +74,11 @@ export default function LoginModal() {
                     type="password"
                     placeholder="password"
                     autoFocus
+                    required
                   />
+                  <Form.Control.Feedback type="invalid">
+                    Please Enter Password.
+                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Form.Group>
               <Row className="">
@@ -66,7 +86,7 @@ export default function LoginModal() {
                   <Form.Check type="checkbox" label="remember" />
                 </Col>
                 <Col></Col>
-                <Col className="fw-light text-end">
+                <Col className="fw-light text-end deco">
                   <a className="text-secondary" href="/forgotpassword">
                     Forgot Password
                   </a>
@@ -75,7 +95,9 @@ export default function LoginModal() {
             </Form.Group>
             <Container>
               <Row className="justify-content-center">
-                <Button className="col-4">Login</Button>
+                <Button className="col-4" onClick={LoginSubmit}>
+                  Login
+                </Button>
               </Row>
             </Container>
           </Form>
