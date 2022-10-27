@@ -14,7 +14,13 @@ export default function StorePage() {
             <LinkContainer to="/create">
               <Button className="float-end col-2 mb-3">create</Button>
             </LinkContainer>
-            <Table striped bordered hover variant="dark" className="text-center">
+            <Table
+              striped
+              bordered
+              hover
+              variant="dark"
+              className="text-center"
+            >
               <thead>
                 <tr className="text-center">
                   <th>#</th>
@@ -30,7 +36,14 @@ export default function StorePage() {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>@mdo</td>
-                  <td>@mdo</td>
+                  <td>
+                    <LinkContainer to={`/edit/`}>
+                      <Button variant="warning" className="mx-2">
+                        Edit
+                      </Button>
+                    </LinkContainer>
+                    <Button variant="danger">Delete</Button>
+                  </td>
                 </tr>
               </tbody>
             </Table>

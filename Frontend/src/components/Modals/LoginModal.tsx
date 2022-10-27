@@ -13,6 +13,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faGoogle } from "@fortawesome/free-brands-svg-icons";
 library.add(faFacebookSquare, faGoogle);
 
+import FacebookLoginButton from "../../features/FackebookLoginButton";
+
 export default function LoginModal() {
   const [show, setShow] = useState(false);
 
@@ -29,6 +31,10 @@ export default function LoginModal() {
     }
 
     setValidated(true);
+  };
+
+  const responseFacebook = (response: any) => {
+    console.log(response);
   };
 
   return (
@@ -119,6 +125,9 @@ export default function LoginModal() {
                 <FontAwesomeIcon className="mx-2" icon={["fab", "google"]} />
                 Login with Google+
               </Button>
+            </Row>
+            <Row className="justify-content-center mt-2">
+              <FacebookLoginButton />
             </Row>
           </Container>
         </Modal.Body>
