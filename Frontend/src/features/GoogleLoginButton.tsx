@@ -1,31 +1,22 @@
-import React, { FunctionComponent, useState } from "react";
-import {
-  GoogleLogin,
-  GoogleLoginResponse,
-  GoogleLoginResponseOffline,
-} from "react-google-login";
+import React, { useState } from "react";
+import GoogleLogin from "react-google-login";
 
-interface GoogleSignInComponentProps {
-  loginSuccess: (
-    response: GoogleLoginResponse | GoogleLoginResponseOffline
-  ) => void;
-}
+export default function GoogleLoginButton() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [url, setUrl] = useState("");
 
-export const GoogleSignInComponent: FunctionComponent<
-  GoogleSignInComponentProps
-> = ({ loginSuccess }) => {
-  const [loginFailed, setLoginFailed] = useState<boolean>();
+  const responseGoogle = (response: any) => {
+    console.log(response);
+  };
+
   return (
     <GoogleLogin
-    //   clientId={`${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}`}
-      clientId="909732484180-0rpp0i38rvsriordprhrhfvnflaiods1.apps.googleusercontent.com"
-      buttonText="Google"
-      onSuccess={loginSuccess}
-      onFailure={(response: any) => {
-        setLoginFailed(true);
-      }}
+      clientId={`${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}`}
+      buttonText="Login with Google"
+      onSuccess={responseGoogle}
+      onFailure={responseGoogle}
       cookiePolicy={"single_host_origin"}
-      responseType="code,token"
     />
   );
-};
+}
