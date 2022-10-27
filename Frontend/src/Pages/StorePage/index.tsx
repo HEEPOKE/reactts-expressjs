@@ -1,4 +1,5 @@
 import NavbarMenu from "../../components/Navbar";
+import Header from "./header";
 import { Container, Card, Table, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
@@ -6,7 +7,7 @@ export default function StorePage() {
   return (
     <div>
       <NavbarMenu />
-      <h2 className="text-center text-dark mt-3">Store</h2>
+      <Header />
       <Container>
         <Card className="mt-3">
           <Card.Body>

@@ -8,6 +8,7 @@ import {
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import LoginModal from "../Modals/LoginModal";
+import RegisterModal from "../Modals/RegisterModal";
 
 export default function NavbarMenu() {
   const RegisterNew = () => {
@@ -29,14 +30,10 @@ export default function NavbarMenu() {
             <LinkContainer to="/store">
               <Nav.Link href="#action2">Store</Nav.Link>
             </LinkContainer>
-            <NavDropdown title="Link" id="navbaDropdown">
+            <NavDropdown title="Options" id="navbaDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
                 Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
@@ -51,11 +48,7 @@ export default function NavbarMenu() {
           </Form>
           <Nav>
             <LoginModal />
-            {/* <LinkContainer to="/register"> */}
-            <Button className="Registerbutton" onClick={RegisterNew}>
-              Register
-            </Button>
-            {/* </LinkContainer> */}
+            <RegisterModal />
           </Nav>
         </Navbar.Collapse>
       </Container>

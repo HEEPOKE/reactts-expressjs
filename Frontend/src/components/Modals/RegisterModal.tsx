@@ -1,0 +1,82 @@
+import React, { useState } from "react";
+import {
+  Button,
+  Form,
+  Modal,
+  Container,
+  Row,
+  Col,
+  FloatingLabel,
+} from "react-bootstrap";
+
+export default function RegisterModal() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button className="Registerbutton" onClick={handleShow}>
+        Register
+      </Button>
+
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          <div className="text-center">
+            <h3>Login</h3>
+          </div>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Group className="mb-3" controlId="Email">
+                <Form.Label>Email</Form.Label>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Email"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="email"
+                    placeholder="@example.com"
+                    autoFocus
+                  />
+                </FloatingLabel>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="Password">
+                <Form.Label>Password</Form.Label>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Password"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="password"
+                    placeholder="password"
+                    autoFocus
+                  />
+                </FloatingLabel>
+              </Form.Group>
+              <Row className="">
+                <Col className="text-start">
+                  <Form.Check type="checkbox" label="remember" />
+                </Col>
+                <Col></Col>
+                <Col className="fw-light text-end">
+                  <a className="text-secondary" href="/forgotpassword">
+                    Forgot Password
+                  </a>
+                </Col>
+              </Row>
+            </Form.Group>
+            <Container>
+              <Row className="justify-content-center">
+                <Button className="col-4">Login</Button>
+              </Row>
+            </Container>
+          </Form>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
+}
