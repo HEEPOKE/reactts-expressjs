@@ -21,4 +21,4 @@ const port = process.env.PORT;
 
 app.use("/api", api.routes);
 
-app.listen(config.port, () => console.log("http://localhost:" + process.env.PORT || 1412));
+app.listen(config.port, () => console.log("http://localhost:" + port || 1412));
