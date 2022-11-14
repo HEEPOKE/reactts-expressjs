@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Button, Container, Form, Card, Row } from "react-bootstrap";
 
 export default function FormCreate() {
@@ -18,6 +19,12 @@ export default function FormCreate() {
     window.history.back();
   };
 
+  const CreateData = () => {
+    axios.post(``, {
+      name,
+    });
+  };
+
   return (
     <Container>
       <Row className="justify-content-center">
@@ -26,7 +33,12 @@ export default function FormCreate() {
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="Name">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter Name" required />
+                <Form.Control
+                  type="text"
+                  name="name"
+                  placeholder="Enter Name"
+                  required
+                />
                 <Form.Control.Feedback type="invalid">
                   Please Enter Name.
                 </Form.Control.Feedback>
