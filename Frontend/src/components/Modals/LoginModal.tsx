@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, FunctionComponent } from "react";
 import {
   Button,
   Form,
@@ -11,7 +11,11 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { GoogleLoginButton } from "react-social-login-buttons";
+import {
+  GoogleLogin,
+  GoogleLoginResponse,
+  GoogleLoginResponseOffline,
+} from "react-google-login";
 library.add(faFacebookSquare, faGoogle);
 
 export default function LoginModal() {
@@ -32,109 +36,118 @@ export default function LoginModal() {
     setValidated(true);
   };
 
-function handleCallbackResponse(response:any) {
-console.log("Encoded JWT Token : " + response.credentila)
-}
+  interface GoogleSignInComponentProps {
+    loginSuccess: (
+      response: GoogleLoginResponse | GoogleLoginResponseOffline
+    ) => void;
+  }
 
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id: "909732484180-ocavgv1cesa52bq7tm75ed1edsvehok2.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-    });
+  const GoogleSignInComponent: FunctionComponent<
+    GoogleSignInComponentProps
+  > = ({ loginSuccess }) => {
+    const [loginFailed, setLoginFailed] = useState<boolean>();
 
-    google.accounts.id.renderbutton({
-document.getElementById("googleButton"),
-{theme: "outline"}
-    });
-  }, []);
+    return (
+      <>
+        <Button className="Loginbutton mx-2" onClick={handleShow}>
+          Login
+        </Button>
 
-  return (
-    <>
-      <Button className="Loginbutton mx-2" onClick={handleShow}>
-        Login
-      </Button>
-
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          <div className="text-center">
-            <h3>Login</h3>
-          </div>
-          <Form noValidate validated={validated} onSubmit={LoginSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Group className="mb-3" controlId="Email">
-                <Form.Label>Email</Form.Label>
-                <FloatingLabel
-                  controlId="floatingInput"
-                  label="Email"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="email"
-                    placeholder="@example.com"
-                    autoFocus
-                    required
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please Enter Email.
-                  </Form.Control.Feedback>
-                </FloatingLabel>
+        <Modal show={show} onHide={handleClose} centered>
+          <Modal.Header closeButton></Modal.Header>
+          <Modal.Body>
+            <div className="text-center">
+              <h3>Login</h3>
+            </div>
+            <Form noValidate validated={validated} onSubmit={LoginSubmit}>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Group className="mb-3" controlId="Email">
+                  <Form.Label>Email</Form.Label>
+                  <FloatingLabel
+                    controlId="floatingInput"
+                    label="Email"
+                    className="mb-3"
+                  >
+                    <Form.Control
+                      type="email"
+                      placeholder="@example.com"
+                      autoFocus
+                      required
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Please Enter Email.
+                    </Form.Control.Feedback>
+                  </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="Password">
+                  <Form.Label>Password</Form.Label>
+                  <FloatingLabel
+                    controlId="floatingInput"
+                    label="Password"
+                    className="mb-3"
+                  >
+                    <Form.Control
+                      type="password"
+                      placeholder="password"
+                      autoFocus
+                      required
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Please Enter Password.
+                    </Form.Control.Feedback>
+                  </FloatingLabel>
+                </Form.Group>
+                <Row className="">
+                  <Col className="text-start">
+                    <Form.Check type="checkbox" label="remember" />
+                  </Col>
+                  <Col></Col>
+                  <Col className="fw-light text-end deco">
+                    <a className="text-secondary" href="/forgotpassword">
+                      Forgot Password
+                    </a>
+                  </Col>
+                </Row>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="Password">
-                <Form.Label>Password</Form.Label>
-                <FloatingLabel
-                  controlId="floatingInput"
-                  label="Password"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="password"
-                    placeholder="password"
-                    autoFocus
-                    required
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please Enter Password.
-                  </Form.Control.Feedback>
-                </FloatingLabel>
-              </Form.Group>
-              <Row className="">
-                <Col className="text-start">
-                  <Form.Check type="checkbox" label="remember" />
-                </Col>
-                <Col></Col>
-                <Col className="fw-light text-end deco">
-                  <a className="text-secondary" href="/forgotpassword">
-                    Forgot Password
-                  </a>
-                </Col>
-              </Row>
-            </Form.Group>
+              <Container>
+                <Row className="justify-content-center">
+                  <Button className="col-4" onClick={LoginSubmit}>
+                    Login
+                  </Button>
+                </Row>
+              </Container>
+            </Form>
+            <div className="text-center mt-2">
+              <span>OR</span>
+            </div>
             <Container>
-              <Row className="justify-content-center">
-                <Button className="col-4" onClick={LoginSubmit}>
-                  Login
-                </Button>
+              <Row className="justify-content-center mt-2"></Row>
+              <Row className="justify-content-center mt-2">
+                {/* <GoogleLoginButton /> */}
+              </Row>
+              <Row className="justify-content-center mt-2">
+                {/* <Button className="GoogleIcon col-6">
+                  <FontAwesomeIcon className="mx-2" icon={["fab", "google"]} />
+                  Login with Google+
+                </Button> */}
+                <GoogleLogin
+                  clientId="909732484180-ocavgv1cesa52bq7tm75ed1edsvehok2.apps.googleusercontent.com"
+                  buttonText="Google"
+                  onSuccess={loginSuccess}
+                  onFailure={(response: any) => {
+                    setLoginFailed(true);
+                  }}
+                  cookiePolicy={"single_host_origin"}
+                  responseType="code,token"
+                />
               </Row>
             </Container>
-          </Form>
-          <div className="text-center mt-2">
-            <span>OR</span>
-          </div>
-          <Container>
-            <Row className="justify-content-center mt-2"></Row>
-            <Row className="justify-content-center mt-2">
-              {/* <GoogleLoginButton /> */}
-            </Row>
-            <Row className="justify-content-center mt-2">
-              <Button className="GoogleIcon col-6">
-                <FontAwesomeIcon className="mx-2" icon={["fab", "google"]} />
-                Login with Google+
-              </Button>
-            </Row>
-          </Container>
-        </Modal.Body>
-      </Modal>
-    </>
-  );
+          </Modal.Body>
+        </Modal>
+      </>
+    );
+  };
 }
