@@ -13,9 +13,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faGoogle } from "@fortawesome/free-brands-svg-icons";
 library.add(faFacebookSquare, faGoogle);
 
-import FacebookLoginButton from "../../features/FackebookLoginButton";
-import GoogleLoginButton from "../../features/GoogleLoginButton";
-
 export default function LoginModal() {
   const [show, setShow] = useState(false);
 
@@ -113,7 +110,7 @@ export default function LoginModal() {
           </div>
           <Container>
             <Row className="justify-content-center mt-2">
-              <FacebookLoginButton />
+       
             </Row>
             <Row className="justify-content-center mt-2">
               {/* <GoogleLoginButton /> */}
