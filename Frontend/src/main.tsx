@@ -8,6 +8,7 @@ import "./assets/css/main.css";
 import "./assets/css/Navbar.css";
 import "./assets/css/Icon.css";
 import "./assets/css/Error.css";
+import "./assets/css/Loading.css"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
