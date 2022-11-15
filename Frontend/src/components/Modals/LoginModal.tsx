@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Form,
@@ -11,6 +11,7 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { GoogleLoginButton } from "react-social-login-buttons";
 library.add(faFacebookSquare, faGoogle);
 
 export default function LoginModal() {
@@ -31,9 +32,21 @@ export default function LoginModal() {
     setValidated(true);
   };
 
-  const responseFacebook = (response: any) => {
-    console.log(response);
-  };
+function handleCallbackResponse(response:any) {
+console.log("Encoded JWT Token : " + response.credentila)
+}
+
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id: "909732484180-ocavgv1cesa52bq7tm75ed1edsvehok2.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
+
+    google.accounts.id.renderbutton({
+document.getElementById("googleButton"),
+{theme: "outline"}
+    });
+  }, []);
 
   return (
     <>
@@ -109,21 +122,10 @@ export default function LoginModal() {
             <span>OR</span>
           </div>
           <Container>
-            <Row className="justify-content-center mt-2">
-       
-            </Row>
+            <Row className="justify-content-center mt-2"></Row>
             <Row className="justify-content-center mt-2">
               {/* <GoogleLoginButton /> */}
             </Row>
-            {/* <Row className="justify-content-center mt-2">
-              <Button className="FacebookIcon col-6">
-                <FontAwesomeIcon
-                  className="mx-2"
-                  icon={["fab", "facebook-square"]}
-                />
-                Login with Facebook
-              </Button>
-            </Row> */}
             <Row className="justify-content-center mt-2">
               <Button className="GoogleIcon col-6">
                 <FontAwesomeIcon className="mx-2" icon={["fab", "google"]} />
