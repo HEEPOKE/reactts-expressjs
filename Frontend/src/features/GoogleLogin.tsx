@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GoogleLogin } from "react-google-login";
+import GoogleButton from "react-google-button";
 
 export default function GoogleLogin() {
   const [loginData, setLoginData] = useState(null);
