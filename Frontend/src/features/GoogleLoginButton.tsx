@@ -1,7 +1,7 @@
 import { gapi } from "gapi-script";
-import { GoogleLogin } from 'react-google-login';
+import GoogleLogin from "react-google-login";
 
-export default function GoogleLogin() {
+export default function GoogleLoginButton() {
   const clientId =
     "617246850621-95f9qhmehd380g2df86pjhrqc84n8nij.apps.googleusercontent.com";
 
