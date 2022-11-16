@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import GoogleLogin from "react-google-login";
+import { GoogleLogin } from "react-google-login";
 import googleLoginService from "../services/googleLoginService";
 
 export default function GoogleLogin() {
   return (
-    <div >
-      <h1>Login With Google</h1>
+    <>
       <GoogleLogin
         clientId={`${process.env.CLIENT_ID}`}
         buttonText="Login with Google"
@@ -23,6 +22,6 @@ export default function GoogleLogin() {
         }}
         cookiePolicy={"single_host_origin"}
       />
-    </div>
+    </>
   );
 }
