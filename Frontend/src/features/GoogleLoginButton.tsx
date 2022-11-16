@@ -3,7 +3,7 @@ import GoogleLogin from "react-google-login";
 
 export default function GoogleLoginButton() {
   const clientId =
-    "617246850621-95f9qhmehd380g2df86pjhrqc84n8nij.apps.googleusercontent.com";
+    "909732484180-ocavgv1cesa52bq7tm75ed1edsvehok2.apps.googleusercontent.com";
 
   const success = (res: any) => {
     console.log(res);
