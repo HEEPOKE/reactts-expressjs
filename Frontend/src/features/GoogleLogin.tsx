@@ -6,7 +6,8 @@ export default function GoogleLogin() {
   return (
     <div >
       <h1>Login With Google</h1>
-      <GoogleLogin clientId={`${process.env.CLIENT_ID}`}
+      <GoogleLogin
+        clientId={`${process.env.CLIENT_ID}`}
         buttonText="Login with Google"
         onSuccess={async (response: any) => {
           const tokens = await googleLoginService(response);
