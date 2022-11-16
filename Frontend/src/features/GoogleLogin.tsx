@@ -1,33 +1,27 @@
 import React, { useState } from "react";
-import GoogleButton from "react-google-button";
+import GoogleLogin from "react-google-login";
+import googleLoginService from "../services/googleLoginService";
 
 export default function GoogleLogin() {
-  const [loginData, setLoginData] = useState(null);
-
-  const handleSuccess = async (googleData: any) => {
-    console.log(googleData);
-    const res = await fetch("/api/google-auth", {
-      method: "POST",
-      body: JSON.stringify({
-        token: googleData.tokenId,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await res.json();
-    setLoginData(data);
-    localStorage.setItem("loginData", JSON.stringify(data));
-  };
-
-  const handleFailure = (res: any) => {
-    alert(JSON.stringify(res));
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("loginData");
-    setLoginData(null);
-  };
-  return <div>GoogleLogin</div>;
+  return (
+    <div >
+      <h1>Login With Google</h1>
+      <GoogleLogin clientId={`${process.env.CLIENT_ID}`}
+        buttonText="Login with Google"
+        onSuccess={async (response: any) => {
+          const tokens = await googleLoginService(response);
+          if (!tokens) {
+            alert("Error while logging in w/Google 1 ")
+          } else {
+            // put login logic (i.e. navigating to dashboard page, fetching user from backend
+            // using the new access token, etc
+          }
+        }}
+        onFailure={(response: any) => {
+          alert("Error while logging in w/Google 2")
+        }}
+        cookiePolicy={"single_host_origin"}
+      />
+    </div>
+  );
 }
