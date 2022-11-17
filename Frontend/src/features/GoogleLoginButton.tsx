@@ -6,14 +6,14 @@ export default function GoogleLoginButton() {
   const clientId =
     "909732484180-ocavgv1cesa52bq7tm75ed1edsvehok2.apps.googleusercontent.com";
 
-  useEffect(() => {
-    const initClient = () => {
-      gapi.client.init({
-        clientId: clientId,
-      });
-    };
-    gapi.load("clientAuth2", initClient);
-  }, []);
+  // useEffect(() => {
+  //   const initClient = () => {
+  //     gapi.client.init({
+  //       clientId: clientId,
+  //     });
+  //   };
+  //   gapi.load("clientAuth2", initClient);
+  // }, []);
 
   const success = (res: any) => {
     console.log("success", res);
@@ -23,19 +23,13 @@ export default function GoogleLoginButton() {
     console.error("error", res);
   };
 
-  const loading = () => {
-    console.log("loading");
-  };
-
   return (
     <>
       <GoogleLogin
         clientId={clientId}
         onSuccess={success}
         onFailure={error}
-        onRequest={loading}
-        responseType="id_token"
-        isSignedIn
+        buttonText="Login with Google"
         className="col-auto"
       />
     </>
