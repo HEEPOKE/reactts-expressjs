@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
+import dotenv from "dotenv";
 import GoogleLogin from "react-google-login";
 
 export default function GoogleLoginButton() {
   const clientId =
-    "909732484180-ocavgv1cesa52bq7tm75ed1edsvehok2.apps.googleusercontent.com";
+    "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
 
   // useEffect(() => {
   //   const initClient = () => {
