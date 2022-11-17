@@ -26,6 +26,7 @@ export default function GoogleLoginButton() {
         onRequest={loading}
         responseType="id_token"
         isSignedIn
+        className="col-auto"
       />
     </>
   );
