@@ -19,6 +19,7 @@
     "bootstrap": "^5.2.2",
     "dotenv": "^16.0.3",
     "env-cmd": "^10.1.0",
+    "firebase": "^9.14.0",
     "gapi-script": "^1.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
