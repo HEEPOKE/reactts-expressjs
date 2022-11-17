@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { gapi } from "gapi-script";
 import GoogleLogin from "react-google-login";
 
@@ -5,12 +6,21 @@ export default function GoogleLoginButton() {
   const clientId =
     "909732484180-ocavgv1cesa52bq7tm75ed1edsvehok2.apps.googleusercontent.com";
 
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: clientId,
+      });
+    };
+    gapi.load("clientAuth2", initClient);
+  }, []);
+
   const success = (res: any) => {
-    console.log(res);
+    console.log("success", res);
   };
 
   const error = (res: any) => {
-    console.error(res);
+    console.error("error", res);
   };
 
   const loading = () => {
