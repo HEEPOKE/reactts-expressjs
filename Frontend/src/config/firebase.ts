@@ -9,6 +9,7 @@ import {
   APP_ID,
   MEASUREMENT_ID,
 } from "./env";
+import firebase from "firebase";
 
 const firebaseConfig = {
   apiKey: API_KEY,
@@ -20,13 +21,13 @@ const firebaseConfig = {
   measurementId: MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-const configFirebase = {
-  firebaseConfig,
-  app,
-  analytics,
-};
+// const configFirebase = {
+//   firebaseConfig,
+//   app,
+//   analytics,
+// };
 
 export default configFirebase;
