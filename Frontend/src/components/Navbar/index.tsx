@@ -31,7 +31,9 @@ export default function NavbarMenu() {
               <Nav.Link href="#action2">Store</Nav.Link>
             </LinkContainer>
             <NavDropdown title="Options" id="navbaDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <LinkContainer to="/check">
+                <NavDropdown.Item>check</NavDropdown.Item>
+              </LinkContainer>
               <NavDropdown.Item href="#action4">
                 Another action
               </NavDropdown.Item>
