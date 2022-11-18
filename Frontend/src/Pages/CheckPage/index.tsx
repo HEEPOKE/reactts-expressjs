@@ -6,7 +6,7 @@ export default function CheckPage() {
   return (
     <>
       <NavbarMenu />
-      <GoogleLoginButton />
+      {/* <GoogleLoginButton /> */}
     </>
   );
 }

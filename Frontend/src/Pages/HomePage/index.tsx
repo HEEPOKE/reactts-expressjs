@@ -1,6 +1,7 @@
 import NavbarMenu from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Card from "react-bootstrap/Card";
+import GoogleLoginButton from "../../features/GoogleLoginButton";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
         </Card.Body>
         <Card.Img variant="bottom" src="holder.js/100px180" />
       </Card>
+      <GoogleLoginButton />
       <Footer />
     </>
   );
