@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
-import dotenv from "dotenv";
 import GoogleLogin from "react-google-login";
 
 export default function GoogleLoginButton() {
