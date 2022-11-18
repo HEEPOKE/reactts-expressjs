@@ -7,7 +7,6 @@ export default function CheckPage() {
     <>
       <NavbarMenu />
       <GoogleLoginButton />
-      {process.env.CLIENT_ID}
     </>
   );
 }
