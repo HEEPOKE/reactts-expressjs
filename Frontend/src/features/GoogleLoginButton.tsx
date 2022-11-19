@@ -4,7 +4,7 @@ import GoogleLogin from "react-google-login";
 import { setDefaultResultOrder } from "dns";
 
 export default function GoogleLoginButton() {
-  const [user, setUser] = useState([]);
+  const [profile, setProfile] = useState([]);
 
   const clientId =
     "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
@@ -20,7 +20,7 @@ export default function GoogleLoginButton() {
   }, []);
 
   const success = (res: any) => {
-    setUser(res.userObj);
+    setProfile(res.profileObj);
     console.log("success", res);
   };
 
