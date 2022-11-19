@@ -5,9 +5,6 @@ import GoogleLogin from "react-google-login";
 export default function GoogleLoginButton() {
   const [profile, setProfile] = useState([]);
 
-  const clientId =
-    "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
-
   useEffect(() => {
     const initClient = () => {
       gapi.client.init({
@@ -17,6 +14,9 @@ export default function GoogleLoginButton() {
     };
     gapi.load("client:Auth2", initClient);
   }, []);
+
+  const clientId =
+    "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
 
   const success = (res: any) => {
     setProfile(res.profileObj);
@@ -34,7 +34,7 @@ export default function GoogleLoginButton() {
         onSuccess={success}
         onFailure={error}
         buttonText="Login with Google"
-        cookiePolicy={"single"}
+        cookiePolicy={"single_host_origin"}
         isSignedIn={true}
         className="col-auto"
       />

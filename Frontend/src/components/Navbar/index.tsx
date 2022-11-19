@@ -57,12 +57,15 @@ export default function NavbarMenu() {
           </Form>
           <Nav>
             {profile ? (
-              <GoogleLogout
-                clientId={clientId}
-                buttonText="Logout"
-                onLogoutSuccess={logout}
-                className="Logout-google col-auto"
-              />
+              <>
+                {/* <div>{profile.name}</div> */}
+                <GoogleLogout
+                  clientId={clientId}
+                  buttonText="Logout"
+                  onLogoutSuccess={logout}
+                  className="Logout-google col-auto"
+                />
+              </>
             ) : (
               <>
                 <LoginModal />
