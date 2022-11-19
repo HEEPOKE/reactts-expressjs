@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
 import GoogleLogin from "react-google-login";
+import { setDefaultResultOrder } from "dns";
 
 export default function GoogleLoginButton() {
+  const [user, setUser] = useState([]);
+
   const clientId =
     "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
 
@@ -17,6 +20,7 @@ export default function GoogleLoginButton() {
   }, []);
 
   const success = (res: any) => {
+    setUser(res.userObj);
     console.log("success", res);
   };
 

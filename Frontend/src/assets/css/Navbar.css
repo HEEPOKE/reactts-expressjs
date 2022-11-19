@@ -10,6 +10,12 @@
     width: 500px;
     align-self: center !important;
   }
+
+  .Logout-google {
+    margin-top: 0.5rem !important;
+    width: 500px;
+    align-self: center !important;
+  }
 }
 
 @media only screen and (max-width: 528px) {
@@ -18,6 +24,11 @@
   }
 
   .Registerbutton {
+    width: 300px;
+  }
+
+  .Logout-google {
+    margin-top: 0.5rem !important;
     width: 300px;
   }
 }

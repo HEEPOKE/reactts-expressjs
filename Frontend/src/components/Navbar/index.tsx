@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Container,
@@ -6,13 +7,19 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
+import { GoogleLogout } from "react-google-login";
 import { LinkContainer } from "react-router-bootstrap";
 import LoginModal from "../Modals/LoginModal";
 import RegisterModal from "../Modals/RegisterModal";
 
 export default function NavbarMenu() {
-  const RegisterNew = () => {
-    window.location.href = "/register";
+  const [user, setUser] = useState([]);
+
+  const clientId =
+    "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
+
+  const logout = () => {
+    setUser(null as any);
   };
 
   return (
@@ -49,8 +56,19 @@ export default function NavbarMenu() {
             <Button variant="outline-success">Search</Button>
           </Form>
           <Nav>
-            <LoginModal />
-            <RegisterModal />
+            {user ? (
+              <GoogleLogout
+                clientId={clientId}
+                buttonText="Logout"
+                onLogoutSuccess={logout}
+                className="Logout-google col-auto"
+              />
+            ) : (
+              <>
+                <LoginModal />
+                <RegisterModal />
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
