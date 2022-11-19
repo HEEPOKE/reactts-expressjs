@@ -20,7 +20,7 @@ export default function GoogleLoginButton() {
 
   const success = (res: any) => {
     setProfile(res.profileObj);
-    // console.log("success", res);
+    console.log("success", res);
   };
 
   const error = (res: any) => {
