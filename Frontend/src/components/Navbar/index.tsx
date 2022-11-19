@@ -13,7 +13,7 @@ import LoginModal from "../Modals/LoginModal";
 import RegisterModal from "../Modals/RegisterModal";
 
 export default function NavbarMenu() {
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState(null);
 
   const clientId =
     "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
