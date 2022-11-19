@@ -13,13 +13,13 @@ import LoginModal from "../Modals/LoginModal";
 import RegisterModal from "../Modals/RegisterModal";
 
 export default function NavbarMenu() {
-  const [user, setUser] = useState([]);
+  const [profile, setProfile] = useState([]);
 
   const clientId =
     "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
 
   const logout = () => {
-    setUser(null as any);
+    setProfile(null as any);
   };
 
   return (
@@ -56,7 +56,7 @@ export default function NavbarMenu() {
             <Button variant="outline-success">Search</Button>
           </Form>
           <Nav>
-            {user ? (
+            {profile ? (
               <GoogleLogout
                 clientId={clientId}
                 buttonText="Logout"
