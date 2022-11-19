@@ -34,7 +34,7 @@ export default function LoginModal() {
 
   return (
     <>
-      <Button className="Loginbutton mx-2" onClick={handleShow}>
+      <Button className="Login-button mx-2" onClick={handleShow}>
         Login
       </Button>
 

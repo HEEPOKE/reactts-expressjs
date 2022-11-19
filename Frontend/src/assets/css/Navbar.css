@@ -1,5 +1,5 @@
 @media only screen and (max-width: 992px) {
-  .Loginbutton {
+  .Login-button {
     margin-top: 0.5rem !important;
     width: 500px;
     align-self: center !important;
@@ -19,7 +19,7 @@
 }
 
 @media only screen and (max-width: 528px) {
-  .Loginbutton {
+  .Login-button {
     width: 300px;
   }
 
