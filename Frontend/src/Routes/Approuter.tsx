@@ -19,7 +19,7 @@ export default function AppRouter() {
           <Route path="/store" element={<StorePage />} />
           <Route path="/create" element={<CreatePage />} />
           <Route path="/check" element={<CheckPage />} />
-          <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Form,
@@ -11,7 +11,7 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import GoogleLoginButton from '../../features/GoogleLoginButton';
+import GoogleLoginButton from "../../features/GoogleLoginButton";
 library.add(faFacebookSquare, faGoogle);
 
 export default function LoginModal() {
@@ -88,7 +88,7 @@ export default function LoginModal() {
                 </Col>
                 <Col></Col>
                 <Col className="fw-light text-end deco">
-                  <a className="text-secondary" href="/forgotpassword">
+                  <a className="text-secondary" href="/forgot-password">
                     Forgot Password
                   </a>
                 </Col>
@@ -115,7 +115,6 @@ export default function LoginModal() {
                   <FontAwesomeIcon className="mx-2" icon={["fab", "google"]} />
                   Login with Google+
                 </Button> */}
-  
             </Row>
           </Container>
         </Modal.Body>

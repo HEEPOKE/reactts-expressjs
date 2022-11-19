@@ -30,7 +30,7 @@ export default function NavbarMenu() {
             <LinkContainer to="/store">
               <Nav.Link href="#action2">Store</Nav.Link>
             </LinkContainer>
-            <NavDropdown title="Options" id="navbaDropdown">
+            <NavDropdown title="Options" id="navbarDropdown">
               <LinkContainer to="/check">
                 <NavDropdown.Item>check</NavDropdown.Item>
               </LinkContainer>
