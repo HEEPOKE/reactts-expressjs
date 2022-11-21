@@ -32,18 +32,19 @@ export default function NavbarMenu() {
   //       scope: "",
   //     });
   //   };
+
   //   gapi.load("client:Auth2", initClient);
   // }, []);
 
   useEffect(() => {
-    function start() {
+    function initClient() {
       gapi.client.init({
         clientId: clientId,
-        scope: "email",
+        scope: "",
       });
     }
 
-    gapi.load("client:auth2", start);
+    gapi.load("client:auth2", initClient);
   }, []);
 
   const success = (res: any) => {
@@ -96,14 +97,13 @@ export default function NavbarMenu() {
           <Nav>
             {profileData ? (
               <>
-                <div>{profile.name}</div>
                 <GoogleLogout
                   clientId={clientId}
                   buttonText="Logout"
                   onLogoutSuccess={logout}
                   className="Logout-google col-auto"
                 />
-                <Button className="col-auto">Logout</Button>
+                <Button className="col-auto">{profileData.name}</Button>
               </>
             ) : (
               <>
