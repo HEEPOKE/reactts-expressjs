@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./index.css";
 import "./assets/css/main.css";
+import "./assets/css/Auth.css";
 import "./assets/css/Navbar.css";
 import "./assets/css/Icon.css";
 import "./assets/css/Error.css";
