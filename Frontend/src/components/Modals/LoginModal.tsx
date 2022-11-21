@@ -108,7 +108,7 @@ export default function LoginModal() {
           <Container>
             <Row className="justify-content-center mt-2"></Row>
             <Row className="justify-content-center mt-2 text-center">
-              <GoogleLoginButton />
+              {/* <GoogleLoginButton /> */}
             </Row>
             <Row className="justify-content-center mt-2">
               {/* <Button className="GoogleIcon col-6">

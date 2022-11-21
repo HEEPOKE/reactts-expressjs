@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   Container,
@@ -7,19 +7,47 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
-import { GoogleLogout } from "react-google-login";
+import { gapi } from "gapi-script";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { LinkContainer } from "react-router-bootstrap";
 import LoginModal from "../Modals/LoginModal";
 import RegisterModal from "../Modals/RegisterModal";
 
 export default function NavbarMenu() {
-  const [profile, setProfile] = useState([]);
-
   const clientId =
     "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
+    
+    // const clientId = process.env.CLIENT_ID;
+
+  const [profileData, setProfileData] = useState(
+    localStorage.getItem("profileData")
+      ? JSON.parse(localStorage.getItem("profileData") || "{}")
+      : null
+  );
+
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      });
+    };
+    gapi.load("client:Auth2", initClient);
+  }, []);
+
+
+  const success = (res: any) => {
+    setProfileData(res.profileObj);
+    console.log("success", res);
+    // refreshTokenSetup(res);
+  };
+
+  const error = (res: any) => {
+    console.error("error", res);
+  };
 
   const logout = () => {
-    setProfile(null as any);
+    setProfileData(null as any);
   };
 
   return (
@@ -56,7 +84,7 @@ export default function NavbarMenu() {
             <Button variant="outline-success">Search</Button>
           </Form>
           <Nav>
-            {profile ? (
+            {profileData ? (
               <>
                 {/* <div>{profile.name}</div> */}
                 <GoogleLogout
@@ -70,6 +98,15 @@ export default function NavbarMenu() {
               <>
                 <LoginModal />
                 <RegisterModal />
+                <GoogleLogin
+                  clientId={clientId}
+                  onSuccess={success}
+                  onFailure={error}
+                  buttonText="Login with Google"
+                  cookiePolicy={"single_host_origin"}
+                  isSignedIn={true}
+                  className="col-auto"
+                />
               </>
             )}
           </Nav>
