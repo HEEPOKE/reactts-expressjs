@@ -10,7 +10,7 @@ import {
 import { gapi } from "gapi-script";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { LinkContainer } from "react-router-bootstrap";
-import LoginModal from "../Modals/LoginModal";
+// import LoginModal from "../Modals/LoginModal";
 import RegisterModal from "../Modals/RegisterModal";
 
 export default function NavbarMenu() {
@@ -87,16 +87,17 @@ export default function NavbarMenu() {
             {profileData ? (
               <>
                 {/* <div>{profile.name}</div> */}
-                <GoogleLogout
+                {/* <GoogleLogout
                   clientId={clientId}
                   buttonText="Logout"
                   onLogoutSuccess={logout}
                   className="Logout-google col-auto"
-                />
+                /> */}
+                <Button className="col-auto">Logout</Button>
               </>
             ) : (
               <>
-                <LoginModal />
+                {/* <LoginModal /> */}
                 <RegisterModal />
                 <GoogleLogin
                   clientId={clientId}
