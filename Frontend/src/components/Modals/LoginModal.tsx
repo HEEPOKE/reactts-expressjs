@@ -11,7 +11,7 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import GoogleLoginButton from "../../features/GoogleLoginButton";
+// import GoogleLoginButton from "../../features/GoogleLoginButton";
 library.add(faFacebookSquare, faGoogle);
 
 export default function LoginModal() {

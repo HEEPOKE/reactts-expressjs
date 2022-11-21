@@ -16,8 +16,8 @@ import RegisterModal from "../Modals/RegisterModal";
 export default function NavbarMenu() {
   const clientId =
     "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
-    
-    // const clientId = process.env.CLIENT_ID;
+
+  const clientIds = process.env.CLIENT_ID || null;
 
   const [profileData, setProfileData] = useState(
     localStorage.getItem("profileData")
@@ -25,16 +25,26 @@ export default function NavbarMenu() {
       : null
   );
 
-  useEffect(() => {
-    const initClient = () => {
-      gapi.client.init({
-        clientId: clientId,
-        scope: "",
-      });
-    };
-    gapi.load("client:Auth2", initClient);
-  }, []);
+  // useEffect(() => {
+  //   const initClient = () => {
+  //     gapi.client.init({
+  //       clientId: clientId,
+  //       scope: "",
+  //     });
+  //   };
+  //   gapi.load("client:Auth2", initClient);
+  // }, []);
 
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientIds,
+        scope: "email",
+      });
+    }
+
+    gapi.load("client:auth2", start);
+  }, []);
 
   const success = (res: any) => {
     setProfileData(res.profileObj);

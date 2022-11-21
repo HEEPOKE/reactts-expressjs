@@ -10,18 +10,19 @@ export default function GoogleLoginButton() {
     : null
   );
 
+  const clientId = "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
+  // const clientId = process.env.CLIENT_ID;
+  
   useEffect(() => {
     const initClient = () => {
       gapi.client.init({
         clientId: clientId,
+        
         scope: "",
       });
     };
     gapi.load("client:Auth2", initClient);
   }, []);
-
-  const clientId = "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
-  // const clientId = process.env.CLIENT_ID;
 
   const success = (res: any) => {
     setProfileData(res.profileObj);
