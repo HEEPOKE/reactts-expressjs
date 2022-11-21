@@ -14,24 +14,28 @@ export default function GoogleLoginButton() {
   // const clientId = process.env.CLIENT_ID;
   
   useEffect(() => {
-    const initClient = () => {
+    function initClient() {
       gapi.client.init({
         clientId: clientId,
-        
         scope: "",
       });
-    };
-    gapi.load("client:Auth2", initClient);
+    }
+
+    gapi.load("client:auth2", initClient);
   }, []);
 
   const success = (res: any) => {
     setProfileData(res.profileObj);
-    console.log("success", res);
+    // console.log("success", res);
     // refreshTokenSetup(res);
   };
 
   const error = (res: any) => {
     console.error("error", res);
+  };
+
+  const logout = () => {
+    setProfileData(null as any);
   };
 
   return (
