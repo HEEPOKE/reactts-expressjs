@@ -10,14 +10,14 @@ import {
 import { gapi } from "gapi-script";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { LinkContainer } from "react-router-bootstrap";
-// import LoginModal from "../Modals/LoginModal";
+import LoginModal from "../Modals/LoginModal";
 import RegisterModal from "../Modals/RegisterModal";
 
 export default function NavbarMenu() {
   const clientId =
     "203320795555-scusrjuu1d5uv37cpncjd0bpkc9i1f2j.apps.googleusercontent.com";
 
-  const clientIds = process.env.CLIENT_ID || null;
+  // const clientIds = process.env.CLIENT_ID;
 
   const [profileData, setProfileData] = useState(
     localStorage.getItem("profileData")
@@ -38,7 +38,7 @@ export default function NavbarMenu() {
   useEffect(() => {
     function start() {
       gapi.client.init({
-        clientId: clientIds,
+        clientId: clientId,
         scope: "email",
       });
     }
@@ -96,18 +96,18 @@ export default function NavbarMenu() {
           <Nav>
             {profileData ? (
               <>
-                {/* <div>{profile.name}</div> */}
-                {/* <GoogleLogout
+                <div>{profile.name}</div>
+                <GoogleLogout
                   clientId={clientId}
                   buttonText="Logout"
                   onLogoutSuccess={logout}
                   className="Logout-google col-auto"
-                /> */}
+                />
                 <Button className="col-auto">Logout</Button>
               </>
             ) : (
               <>
-                {/* <LoginModal /> */}
+                <LoginModal />
                 <RegisterModal />
                 <GoogleLogin
                   clientId={clientId}
