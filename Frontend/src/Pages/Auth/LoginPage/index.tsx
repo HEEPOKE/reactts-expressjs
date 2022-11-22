@@ -1,9 +1,12 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
+  const Back = () => {
+    window.history.back();
+  };
+
   return (
     <section className="vh-100">
       <div className="container-fluid h-custom">
@@ -38,11 +41,19 @@ export default function LoginPage() {
                   <a>Forgot password?</a>
                 </LinkContainer>
               </Form.Group>
+              <Button
+                type="submit"
+                className="btn-lg mt-2 col-sm-12 col-md-12 col-lg-12 col-xl-12"
+                variant="primary"
+              >
+                Login
+              </Button>
             </Form>
-            <Button className="btn-lg mt-2 mx-2" variant="primary">
-              Login
-            </Button>
-            <Button className="btn-lg mt-2" variant="secondary">
+            <Button
+              className="btn-lg mt-2 col-sm-12 col-md-12 col-lg-12 col-xl-12"
+              variant="secondary"
+              onClick={Back}
+            >
               Back
             </Button>
             <div className="text-center text-lg-start">
