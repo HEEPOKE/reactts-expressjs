@@ -25,7 +25,7 @@ export default function LoginPage() {
             <Form>
               <Form.Group>
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="test" placeholder="Enter Username" />
+                <Form.Control type="text" placeholder="Enter Username" />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Password</Form.Label>

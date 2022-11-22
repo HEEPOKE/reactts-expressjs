@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 
 export default function RegisterPage() {
   const Back = () => {
@@ -25,7 +24,11 @@ export default function RegisterPage() {
             <Form>
               <Form.Group>
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="test" placeholder="Enter Username" />
+                <Form.Control type="text" placeholder="Enter Username" />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Enter Email" />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Password</Form.Label>
@@ -35,21 +38,24 @@ export default function RegisterPage() {
                   placeholder="Enter Password"
                 />
               </Form.Group>
-              <Form.Group
-                className="d-flex justify-content-between align-items-center"
-                controlId="formBasicCheckbox"
-              >
-                <Form.Check type="checkbox" label="Remember me" />
-                <LinkContainer to="/auth/Forgot-password">
-                  <a>Forgot password?</a>
-                </LinkContainer>
+              <Form.Group className="mb-3">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  minLength={8}
+                  placeholder="Confirm Password"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Tel</Form.Label>
+                <Form.Control type="tel" placeholder="tel" />
               </Form.Group>
               <Button
                 type="submit"
                 className="btn-lg mt-2 col-sm-12 col-md-12 col-lg-12 col-xl-12"
                 variant="primary"
               >
-                Login
+                Submit
               </Button>
             </Form>
             <Button
@@ -59,17 +65,6 @@ export default function RegisterPage() {
             >
               Back
             </Button>
-            <div className="text-center text-lg-start">
-              <p className="small fw-bold mt-2 pt-1 mb-0">
-                Don't have an account?{" "}
-                <LinkContainer to="/auth/register">
-                  <a className="link-danger NN">Register</a>
-                </LinkContainer>
-              </p>
-            </div>
-            <div className="text-center mt-2 fw-bold">
-              <h4>OR</h4>
-            </div>
           </div>
         </div>
       </div>
