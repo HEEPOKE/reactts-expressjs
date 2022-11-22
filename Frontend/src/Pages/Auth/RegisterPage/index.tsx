@@ -48,7 +48,7 @@ export default function RegisterPage() {
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Tel</Form.Label>
-                <Form.Control type="tel" placeholder="tel" />
+                <Form.Control type="tel" placeholder="xxx-xxx-xxxx" />
               </Form.Group>
               <Button
                 type="submit"
