@@ -1,19 +1,24 @@
-import dotenv from 'dotenv';
-import assert from 'assert';
+import dotenv from "dotenv";
+import assert from "assert";
 
 dotenv.config();
 
-export const {
-    PORT,
-    HOST,
-    HOST_URL,
-} = process.env;
+const { PORT, HOST, HOST_URL, CLIENT_ID } = process.env;
 
-assert(PORT, 'PORT is required');
-assert(HOST, 'HOST is required');
+const config = {
+  PORT,
+  HOST,
+  HOST_URL,
+  CLIENT_ID,
+};
 
-module.exports = {
-    port: PORT,
-    host: HOST,
-    url: HOST_URL,
-}
+assert(PORT, "PORT is required");
+assert(HOST, "HOST is required");
+
+// module.exports = {
+//     port: PORT,
+//     host: HOST,
+//     url: HOST_URL,
+// }
+
+export default config;

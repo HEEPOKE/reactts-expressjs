@@ -12,8 +12,8 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(express.json());
 
-const port = process.env.PORT;
+const port = config.PORT;
 
 app.use("/api", api.routes);
 
-app.listen(config.port, () => console.log("http://localhost:" + port || 1412));
+app.listen(port, () => console.log("http://localhost:" + port || 1412));
