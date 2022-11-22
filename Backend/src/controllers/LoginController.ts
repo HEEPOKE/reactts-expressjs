@@ -5,3 +5,11 @@ import config from "../config";
 dotenv.config();
 
 const client = new OAuth2Client(config.CLIENT_ID);
+
+const loginGoogle = "a";
+
+const LoginController = {
+  loginGoogle,
+};
+
+export default LoginController;
