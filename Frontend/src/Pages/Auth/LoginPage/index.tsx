@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import GoogleLoginButton from "../../../features/GoogleLoginButton";
 
 export default function LoginPage() {
   const Back = () => {
@@ -70,6 +71,7 @@ export default function LoginPage() {
             <div className="text-center mt-2 fw-bold">
               <h4>OR</h4>
             </div>
+            <GoogleLoginButton />
           </div>
         </div>
       </div>

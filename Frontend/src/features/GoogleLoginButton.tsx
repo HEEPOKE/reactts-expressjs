@@ -47,7 +47,7 @@ export default function GoogleLoginButton() {
         buttonText="Login with Google"
         cookiePolicy={"single_host_origin"}
         isSignedIn={true}
-        className="col-auto"
+        className="mt-2 col-sm-12 col-md-12 col-lg-12 col-xl-12"
       />
     </>
   );
