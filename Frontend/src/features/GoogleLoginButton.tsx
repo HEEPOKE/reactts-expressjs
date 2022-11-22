@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
 import GoogleLogin from "react-google-login";
+import axios from "axios";
 import { refreshTokenSetup } from "../utils/refreshToken";
 
 export default function GoogleLoginButton() {
@@ -24,10 +25,16 @@ export default function GoogleLoginButton() {
     gapi.load("client:auth2", initClient);
   }, []);
 
-  const success = (res: any) => {
+  const handleLogin = async (res: any) => {
+    const login = axios({
+      method: 'get',
+      url: 'http://bit.ly/2mTM3nY',
+      responseType: 'json'
+    })
+      .then(function (res) {
+        
+      });
     setProfileData(res.profileObj);
-    // console.log("success", res);
-    // refreshTokenSetup(res);
   };
 
   const error = (res: any) => {
@@ -42,7 +49,7 @@ export default function GoogleLoginButton() {
     <>
       <GoogleLogin
         clientId={clientId}
-        onSuccess={success}
+        onSuccess={handleLogin}
         onFailure={error}
         buttonText="Login with Google"
         cookiePolicy={"single_host_origin"}
