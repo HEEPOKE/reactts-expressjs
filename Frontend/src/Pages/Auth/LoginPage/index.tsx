@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   return (
@@ -15,18 +16,6 @@ export default function LoginPage() {
             />
           </div>
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-              <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-              <button
-                type="button"
-                className="btn btn-primary btn-floating mx-1"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </button>
-            </div>
-            <div className="divider d-flex align-items-center my-4">
-              <p className="text-center fw-bold mx-3 mb-0">OR</p>
-            </div>
             <Form>
               <Form.Group>
                 <Form.Label>Username</Form.Label>
@@ -34,7 +23,11 @@ export default function LoginPage() {
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" minLength={8} placeholder="Enter Password" />
+                <Form.Control
+                  type="password"
+                  minLength={8}
+                  placeholder="Enter Password"
+                />
               </Form.Group>
               <Form.Group
                 className="d-flex justify-content-between align-items-center"
@@ -46,16 +39,22 @@ export default function LoginPage() {
                 </LinkContainer>
               </Form.Group>
             </Form>
-            <div className="text-center text-lg-start mt-4 pt-2">
-              <Button className="btn-lg" variant="primary">
-                Login
-              </Button>
+            <Button className="btn-lg mt-2 mx-2" variant="primary">
+              Login
+            </Button>
+            <Button className="btn-lg mt-2" variant="secondary">
+              Back
+            </Button>
+            <div className="text-center text-lg-start">
               <p className="small fw-bold mt-2 pt-1 mb-0">
                 Don't have an account?{" "}
                 <LinkContainer to="/auth/register">
                   <a className="link-danger NN">Register</a>
                 </LinkContainer>
               </p>
+            </div>
+            <div className="text-center mt-2 fw-bold">
+              <h4>OR</h4>
             </div>
           </div>
         </div>
