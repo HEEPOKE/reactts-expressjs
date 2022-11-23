@@ -1,7 +1,7 @@
 import passport from "passport";
 import passportJwt from "passport-jwt";
 import config from "./config";
-import userInterface from "../interface/userInterface";
+import User from "../models/user";
 
 const ExtractJwt = passportJwt.ExtractJwt;
 const StrategyJwt = passportJwt.Strategy;
@@ -13,12 +13,11 @@ passport.use(
       secretOrKey: config.JWT_SECRET,
     },
     function (JwtPayload, done) {
-      return userInterface
-        .findOne({
-          where: { id: JwtPayload.id },
-        })
-        .then((userInterface: any) => {
-          return done(null, userInterface);
+      return User.findOne({
+        where: { id: JwtPayload.id },
+      })
+        .then((User: any) => {
+          return done(null, User);
         })
         .catch((err: any) => {
           return done(err);

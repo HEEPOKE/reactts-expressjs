@@ -1,8 +1,16 @@
-export default interface userInterface {
-  _id: number;
+import { Model, InferAttributes, InferCreationAttributes, CreationOptional } from "sequelize";
+
+export default interface userInterface
+  extends Model<
+    InferAttributes<userInterface>,
+    InferCreationAttributes<userInterface>
+  > {
+  id: CreationOptional<number>;
   name?: string;
+  password?: string;
   email?: string;
-  imageurL?: string;
+  googleId?: string;
+  imageurl?: string;
   role?: string;
   token?: string;
 }
