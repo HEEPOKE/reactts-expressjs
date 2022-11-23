@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyparser from 'body-parser';
 import dotenv from 'dotenv';
 import config from "./config/config";
-import api from "./routes/routes";
+import router from "./routes/routes";
 
 dotenv.config();
 
@@ -14,6 +14,6 @@ app.use(express.json());
 
 const port = config.PORT;
 
-app.use("/api", api.routes);
+app.use("/api", router);
 
 app.listen(port, () => console.log("http://localhost:" + port || 1412));
