@@ -3,5 +3,5 @@ export default interface users {
     email: string;
     picture: any;
     status: string;
-    role: string;
+    role: string
 }
