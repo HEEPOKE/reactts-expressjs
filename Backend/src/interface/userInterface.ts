@@ -10,7 +10,7 @@ export default interface userInterface
   password?: string;
   email?: string;
   googleId?: string;
-  imageurl?: string;
+  picture?: string;
   role?: string;
   token?: string;
 }

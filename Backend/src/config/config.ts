@@ -3,7 +3,7 @@ import assert from "assert";
 
 dotenv.config();
 
-const { PORT, HOST, HOST_URL, CLIENT_ID, JWT_SECRET, COOKIE_KEY } = process.env;
+const { PORT, HOST, HOST_URL, CLIENT_ID, JWT_SECRET, COOKIE_KEY, CALLBACK_URL } = process.env;
 
 const config = {
   PORT,
@@ -12,6 +12,7 @@ const config = {
   CLIENT_ID,
   JWT_SECRET,
   COOKIE_KEY,
+  CALLBACK_URL
 };
 
 assert(PORT, "PORT is required");
@@ -20,6 +21,7 @@ assert(HOST_URL, "HOST_URL is required");
 assert(CLIENT_ID, "CLIENT_ID is required");
 assert(JWT_SECRET, "JWT_SECRET is required");
 assert(COOKIE_KEY, "COOKIE_KEY is required");
+assert(CALLBACK_URL, "CALLBACK_URL is required");
 
 // module.exports = {
 //     port: PORT,
