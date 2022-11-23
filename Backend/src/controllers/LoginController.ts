@@ -1,6 +1,6 @@
 import { OAuth2Client } from "google-auth-library";
 import dotenv from "dotenv";
-import config from "../config";
+import config from "../config/config";
 
 dotenv.config();
 
